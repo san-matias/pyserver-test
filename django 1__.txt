@@ -1,0 +1,33 @@
+1.가상환경 설치 폴더 생성 및 이동
+20600django
+2.가상환경 생성
+python -m venv (가상환경이름)
+3.가상환경 실행
+djangotest\Scripts\activate
+4. django 설치
+pip install django==1.8
+5. django 프로젝트 생성
+django-admin startproject mysite .
+                                                (점)
+6. 서버 실행
+python manage.py runserver
+7. 브라우저 서버 접속
+http://127.0.0.1:8000/
+8.관리자 페이지 접속
+http://127.0.0.1:8000/admin
+9. 데이터베이스 생성
+python manage.py migrate
+10. admin 계정 생성
+python manage.py createsuperuser
+11. 공지사항 작성 기능(앱)추가, 생성
+python manage.py startapp blog
+12. blog\models.py 에서 class 구조를 설계
+13. blog 에 대한 테이블(데이터베이스)을 생성
+-python manage.py makemigrations blog
+-python manage.py migrate blog
+14. mysite\settings.py 에서 installed_app
+ 'blog'를 추가
+15. blog\admin.py 를 다음과 같이 수정
+from .models import Student
+admin.site.register(Student)
+16. 서버 실행(python manage.py runserver)

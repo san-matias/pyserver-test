@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{name}}'s portfolio</title>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,800" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  		<link rel='stylesheet prefetch' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+	</head>
+
+	<body>
+		<div class="container">
+
+		<div class="article" style="font-size: 45px; font-family: 'Montserrat', sans-serif; font-weight: 800; padding :20px; color: #323232" > @{{name}}'s portfolio </div>
+
+		<div class="article" style="margin-bottom: 50px;">
+			<table>
+				{% for i in post %}
+				<tr>
+					<td style="vertical-align:middle; text-align: center;">
+						<a href ="{% url 'post_details' pk=i.pk %}">
+						<div style="display: inline-block; vertical-align:middle; color: #303030; margin-left: 10px;">
+						<div id="folio_title">{{i.title}}</div>
+							<div id="folio_text">{{i.text}}</div>
+						</div>
+						</a>
+					</td>
+					<td style="vertical-align:middle; text-align: center">
+						<div id="folio_image">
+							<img style="max-width: 100%; width: auto; object-fit: contain;" src="{{ i.photo.url }}" alt="" >
+						</div>
+					</td>
+				</tr>
+    			{% endfor %}
+			</table>
+		</div>
+		</div>
+	</body>
+</html>

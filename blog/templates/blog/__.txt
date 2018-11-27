@@ -1,0 +1,9 @@
+1. blog\템플릿\base.html 글쓰기버튼 생성 템플릿 수정
+<a href="">글쓰기
+
+2. URL설계
+blog\urls.py 수정
+
+3. views.py수정 (URL -> 템플릿 연결)
+
+4. post_edit.html생성

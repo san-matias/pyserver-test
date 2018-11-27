@@ -1,0 +1,32 @@
+﻿<html>
+<!--
+<a href="/"> 1페이지 </a>
+<a href="2"> 2페이지 </a>
+<a href="3"> 3페이지 </a>
+<a href="{%url 'post_new' %}"> 글쓰기 </a>
+
+<body>
+    <div class="page-header">
+        {% if user.is_authenticated %}
+            <a href="{% url 'post_new' %}" >POST NEW</a>
+            <a href="{% url 'logout' %}" >L O G O U T</a>
+        {% else %}
+            <a href="{% url 'login' %}" >L O G I N</a>
+        {% endif %}
+        <h1><a href="/">FORZA FERRARI</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>-->
+
+{% block block1 %}
+
+{% endblock %}
+
+</html>

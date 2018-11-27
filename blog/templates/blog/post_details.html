@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>LASTNAME</title>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  		<link rel='stylesheet prefetch' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+			<style type="text/css">
+			 p{
+
+	 			float: right;
+	 			font-size: 38px;
+				font-weight: 600;
+				color: #FFFFFF;
+			 }
+      </style>
+
+	</head>
+
+	<body>
+		<div class="container">
+		<div class="article">
+			<div style="display:inline-block; font-size: 45px; font-family: 'Montserrat', sans-serif; font-weight: 800; padding :20px 0px 20px 20px; color: #323232" > {{post.title}}</div>
+
+			<div style="display:inline-block; vertical-align :middle; font-size: 15px; font-family: 'Montserrat', sans-serif; font-weight: 600; margin-left: 10px; color: #323232">{{post.created_date}}</div>
+		</div>
+
+		<div class="article">
+
+			<div style="margin : 35px; overflow: hidden; text-align: center; width: 95%; display: inline-block;">
+				<img style="max-width: 100%; width: auto; object-fit: contain;" src="{{ post.photo.url }}" alt="" >
+			</div>
+
+			<hr style="margin-left: 35px; margin-right: 35px;">
+
+			<div style="margin:35px; font-size : 32px; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #303030;">{{ post.text }}</div>
+		</div>
+
+
+			<div class="article" style="margin-bottom: 50px;">
+			<a href="{% url 'add_comment_to_post' pk=post.pk %}"><div style="font-weight: 800; font-size: 20px; margin: 25px 15px 15px 15px; padding-left:15px;color: #303030;">댓글 추가</div></a>
+
+			{% for comment in post.comments.all %}
+			    <div style="padding: 15px; margin: 15px;">
+			    	<div style="vertical-align: middle; font-size : 22px; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #303030; display: inline-block;">{{ comment.author }}</div>
+			        <div style="vertical-align: middle; font-size : 15px; font-family: 'Montserrat', sans-serif; font-weight: 600;color: #303030; display: inline-block; margin-left: 5px;">{{ comment.created_date }}</div>
+			        <hr>
+			        <div style="display: block;font-size : 18px; font-family: 'Montserrat', sans-serif; font-weight: 600; color: #303030;">{{ comment.text|linebreaksbr }}</div>
+			    </div>
+			{% empty %}
+			    <div style="vertical-align: middle; font-size : 22px; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #303030; margin:30px;">NO COMMENT</div>
+		{% endfor %}
+
+
+
+
+
+			</div>
+				<a href="http://127.0.0.1:8000/"><p>Main</p></a>
+		</div>
+
+	</body>
+</html>

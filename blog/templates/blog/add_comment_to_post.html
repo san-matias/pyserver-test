@@ -1,0 +1,91 @@
+﻿<!--
+    <h1>New comment</h1>
+    <form method="POST">{% csrf_token %}
+        {{ form.as_p}}
+
+        <button type="submit">Send</button>
+    </form>
+
+-->
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>post new</title>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  		<link rel='stylesheet prefetch' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+      <style type="text/css">
+      button[type="submit"]{
+        float: right;
+	 			font-size: 38px;
+				font-weight: 600;
+        margin: 20px;
+				color: #000000;
+
+      }
+		 input[type=text]{
+		    width: 100%;
+		    padding: 12px 20px;
+
+		    box-sizing: border-box;
+		    border-color: #111111;
+		    border-style: solid;
+		    border-top:2px;
+		    margin-bottom : 90px;
+		}
+
+		input[type=submit] {
+			display: block;
+			float: right;
+			font-size: 38px;
+			margin: 50px;
+		}
+		input[type=file] {
+			font-size: 20px;
+			display: block;
+			margin-left : 30px;
+			margin-bottom: 100px;
+		}
+      	textarea {
+      		width: 100%;
+
+		    padding: 12px 20px;
+		    margin: 8px 0;
+		    box-sizing: border-box;
+		    border-color: #111111;
+		    border-style: solid;
+		    border-top:2px;
+
+		    margin-bottom : 90px;
+      	}
+      	label{
+      		font-size: 38px;
+      		font-weight: 700;
+      		display: block;
+      		margin : 25px;
+      	}
+      </style>
+	</head>
+
+	<body>
+
+		<div class="container">
+
+		<div class="article" style="margin-bottom: 50px;">
+      <form method="POST">{% csrf_token %}
+          {{ form.as_p}}
+          <button type="submit">Send</button>
+      </form>
+
+		</div>
+
+		</div>
+
+	</body>
+</html>
